@@ -1,31 +1,74 @@
-const projectStLouis = {
-  id: "st-louis-exhibition-2021",
-  title: "St. Louis Exhibition Competition Talent 2021",
-  category: "SIMULATED-LIVE BROADCASTING & MASTER STREAMING",
-  role: "Central Event Committee (Broadcasting)",
-  client: "St. Louis Exhibition Competition Talent 2021",
-  date: "Aug 2021 – Sep 2021",
+// data/projects/st-louis-exhibition.js
+const projectStLouisExhibition = {
+  id: "st-louis-exhibition",
+  title: "St. Louis Exhibition & Talent Competition 2021",
+  category: "BROADCAST STREAMING & EVENT DOCUMENTATION",
+  role: "Lead Broadcast Editor & Visual Production",
+  client: "SMA Katolik St. Louis 1 Surabaya",
+  date: "Oct 2021 – Nov 2021",
   location: "Surabaya, East Java",
-  shortDesc: "Managed the simulated-live stream for the opening and closing ceremonies of a school competition. More than 539 participants took part across the event.",
-  thumbnail: "assets/images/st-louis-thumb.jpg",
-  tcMaster: "TC 00:33:57:00",
-  labelMaster: "CEREMONY ARCHIVE · 16:9",
-  editorialOverview: "Produced promotional teasers, trailers, and master broadcast videos for a national online competition with 539+ participants. Executed simulated-live (simulive) broadcasts to YouTube via OBS Studio for opening and closing ceremonies.",
+  shortDesc: "End-to-end multi-stage virtual broadcast production, competition recap compilations, and ceremony livestreams for an inter-school talent and academic exhibition.",
+
+  thumbnail: "assets/images/st-louis-exhibition/A recap of the competition from the preliminary rounds to the grand final.jpg",
+  tcMaster: "TC 00:01:24:00",
+  labelMaster: "BROADCAST · 16:9",
+
+  editorialOverview: "Directed and edited visual packages for the St. Louis Exhibition & Talent Competition 2021. Managed full-cycle video production across the opening and closing ceremonies, spanning candidate recap packages, MC introductions, keynote addresses, and high-energy winner announcements. Delivered color-graded title sequences and graphics packages optimized for multi-platform virtual streaming.",
   technicalPointers: [
-    "Produced promotional teasers, trailers, and master broadcast videos",
-    "Executed simulated-live (simulive) broadcasts to YouTube via OBS Studio",
-    "Ensured stable transmission across multi-day schedules",
-    "Streamed opening and closing ceremonies for 539+ participants"
+    "Multi-session virtual ceremony stream compilation and timing management",
+    "Comprehensive recap edits covering preliminary stages through grand finals",
+    "Broadcast lower-thirds, title credits, and motion graphic inserts",
+    "High-dynamic range color grading and speech dialogue master leveling"
   ],
   detailMedia: {
-    masterImage: "assets/images/st-louis-master.jpg",
-    masterTc: "TC 00:33:57:00",
-    masterLabel: "16:9 CEREMONY ARCHIVE"
+    masterImage: "https://img.youtube.com/vi/uavq6E4Yq-M/hqdefault.jpg",
+    masterTc: "TC 00:00:00:00",
+    masterLabel: "OPENING CEREMONY · 16:9",
+    masterLink: "https://www.youtube.com/watch?v=uavq6E4Yq-M",
+
+    reelImage: "https://img.youtube.com/vi/yI5oLHG5QXU/hqdefault.jpg",
+    reelTc: "TC 00:24:46:00",
+    reelLabel: "CLOSING CEREMONY",
+    reelLink: "https://www.youtube.com/watch?v=yI5oLHG5QXU&t=1486s"
   },
+
   stills: [
-    { url: "assets/images/st-louis-still1.jpg", caption: "OBS Studio transmission board" }
+    {
+      url: "assets/images/st-louis-exhibition/A recap of the competition from the preliminary rounds to the grand final.jpg",
+      caption: "Competition recap montage spanning preliminaries through grand finals"
+    },
+    {
+      url: "assets/images/st-louis-exhibition/Winner announcement.jpg",
+      caption: "Official winner announcement presentation graphics"
+    },
+    {
+      url: "assets/images/st-louis-exhibition/principal speech.jpg",
+      caption: "Keynote address and ceremonial opening speech"
+    },
+    {
+      url: "assets/images/st-louis-exhibition/MC.jpg",
+      caption: "Ceremony master of ceremonies broadcast presentation"
+    },
+    {
+      url: "assets/images/st-louis-exhibition/credit title.jpg",
+      caption: "Production crew credits and closing title sequence"
+    },
+    {
+      url: "assets/images/st-louis-exhibition/Certificate.jpg",
+      caption: "Official competition credential & recognition certificate"
+    }
   ],
+
   archiveLinks: [
-    { title: "Open Broadcast Recording Archive", status: "LINK COMING SOON" }
+    {
+      title: "Watch Opening Ceremony Livestream (YouTube)",
+      status: "OPEN BROADCAST",
+      url: "https://www.youtube.com/watch?v=uavq6E4Yq-M"
+    },
+    {
+      title: "Watch Closing Ceremony & Grand Final (YouTube)",
+      status: "OPEN BROADCAST",
+      url: "https://www.youtube.com/watch?v=yI5oLHG5QXU&t=1486s"
+    }
   ]
 };

@@ -3,6 +3,7 @@ const projectsData = [
   projectHarwacara,
   projectTheLightOfJava,
   projectUnity2025,
-  projectMojo,
-  projectStLouis
+  projectGenZummit2025,
+  projectPhotostoryLatak,
+  projectStLouisExhibition
 ];

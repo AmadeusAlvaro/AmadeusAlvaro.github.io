@@ -11,8 +11,9 @@ const projectUnity2025 = {
 
   // Feed card visual
   thumbnail: "assets/images/unity-2025/team.jpg",
-  tcMaster: "TC 00:03:14:18",
-  labelMaster: "FESTIVAL RECAP · 16:9",
+  trailerVideo: "assets/images/unity-2025/trailer-unity.mp4",
+  tcMaster: "TC 00:00:45:00",
+  labelMaster: "OFFICIAL TRAILER · TEASER",
 
   editorialOverview: "Directed visual documentation and short-form promotional rollouts for UNITY 2025. Coordinated team coverage across full-scale plenary gatherings, behind-the-scenes club activities, and the main stage live festival run. Developed high-paced editing workflows for vertical reels to drive attendee engagement across campus media platforms.",
   technicalPointers: [
