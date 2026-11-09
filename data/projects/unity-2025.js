@@ -1,32 +1,66 @@
+// data/projects/unity-2025.js
 const projectUnity2025 = {
   id: "unity-2025",
-  title: "UNITY 2025 — English Competition Event Coverage & Teaser",
-  category: "EVENT DOCUMENTATION & FAST-TURNAROUND EDITING",
-  role: "Documentation Committee Member & Offline Editor",
-  client: "UMN English Student Council",
-  date: "Feb 2025 – Oct 2025",
+  title: "UNITY 2025 — Campus Festival & Live Stage Production",
+  category: "EVENT DOCUMENTATION & DIGITAL BROADCAST",
+  role: "Lead Videographer & Documentation Strategist",
+  client: "UMN Student Committee / UNITY 2025",
+  date: "Jan 2025 – Present",
   location: "Tangerang, Banten",
-  shortDesc: "Full photo and video coverage of an English competition, from MCs and participants to brand sponsors. Opening video and closing recap were cut offline against event-day deadlines.",
-  thumbnail: "assets/images/unity-thumb.jpg",
-  tcMaster: "TC 02:05:41:19",
-  labelMaster: "PROMOTIONAL TRAILER · 16:9",
-  editorialOverview: "Filmed and offline-edited the promotional trailer and opening video for UNITY, an English competition hosted by UMN English Student Council. Captured comprehensive event-day photography and videography, ensuring complete visual coverage of MCs, participants, and brand sponsors under tight recap deadlines.",
+  shortDesc: "Comprehensive documentation campaign spanning official cinematic trailers, plenary sessions, and high-energy live stage D-day recaps for university-wide festival events.",
+
+  // Feed card visual
+  thumbnail: "assets/images/unity-2025/team.jpg",
+  tcMaster: "TC 00:03:14:18",
+  labelMaster: "FESTIVAL RECAP · 16:9",
+
+  editorialOverview: "Directed visual documentation and short-form promotional rollouts for UNITY 2025. Coordinated team coverage across full-scale plenary gatherings, behind-the-scenes club activities, and the main stage live festival run. Developed high-paced editing workflows for vertical reels to drive attendee engagement across campus media platforms.",
   technicalPointers: [
-    "Filmed and offline-edited promotional trailer and opening video",
-    "Captured comprehensive event photography and videography",
-    "Ensured full visual coverage of MCs, participants, and brand sponsors",
-    "Supplied raw footage under tight deadlines for event closing recap"
+    "Directed multi-angle field camera crews across high-capacity campus venues",
+    "Produced rapid-turnaround vertical social reels for active promotional runs",
+    "Managed low-light event photography and live concert stage lighting capture",
+    "Coordinated asset archiving and final delivery packages for student media"
   ],
   detailMedia: {
-    masterImage: "assets/images/unity-master.jpg",
-    masterTc: "TC 02:05:41:19",
-    masterLabel: "16:9 PROMOTIONAL TRAILER"
+    // Master Video Card (D-day event recap)
+    masterImage: "assets/images/unity-2025/club-1.jpg",
+    masterTc: "TC 00:01:30:00",
+    masterLabel: "D-DAY RECAP · REEL",
+    masterLink: "https://www.instagram.com/reel/DMWnt5XzgCz/",
+
+    // Vertical Reel Card (Official Trailer)
+    reelImage: "assets/images/unity-2025/mypic-1.jpg",
+    reelTc: "TC 00:00:45:00",
+    reelLabel: "OFFICIAL TRAILER",
+    reelLink: "https://www.instagram.com/reel/DJiuK8zyMYg/"
   },
+
+  // Stills grid: team and event documentation
   stills: [
-    { url: "assets/images/unity-still1.jpg", caption: "Opening ceremony MC coverage" },
-    { url: "assets/images/unity-still2.jpg", caption: "Audience reaction & partner banners" }
+    { url: "assets/images/unity-2025/team.jpg", caption: "UNITY 2025 Documentation & Media Crew" },
+    { url: "assets/images/unity-2025/mypic-1.jpg", caption: "Field Documentation: Camera Operating" },
+    { url: "assets/images/unity-2025/mypic-2.jpg", caption: "Field Documentation: Event Floor" },
+    { url: "assets/images/unity-2025/mypic-3.jpg", caption: "Field Documentation: Live Stage" },
+    { url: "assets/images/unity-2025/club-1.jpg", caption: "Campus Activity & Club Showcase I" },
+    { url: "assets/images/unity-2025/club-2.jpg", caption: "Campus Activity & Club Showcase II" },
+    { url: "assets/images/unity-2025/club-3.jpg", caption: "Campus Activity & Club Showcase III" }
   ],
+
   archiveLinks: [
-    { title: "Open Event Media Assets Archive", status: "LINK COMING SOON" }
+    {
+      title: "Watch Official Trailer on Instagram",
+      status: "OPEN INSTAGRAM REEL",
+      url: "https://www.instagram.com/reel/DJiuK8zyMYg/"
+    },
+    {
+      title: "Plenary Meeting Documentation Reel",
+      status: "OPEN INSTAGRAM REEL",
+      url: "https://www.instagram.com/reel/DLE7NP9zpoX/"
+    },
+    {
+      title: "D-Day Event Recap Reel",
+      status: "OPEN INSTAGRAM REEL",
+      url: "https://www.instagram.com/reel/DMWnt5XzgCz/"
+    }
   ]
 };
