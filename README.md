@@ -45,3 +45,17 @@ A responsive, broadcast-inspired portfolio website showcasing digital journalism
         ├── unity-2025/
         ├── mojo/
         └── st-louis/
+
+## 🚀 Running Locally
+
+Follow these steps to clone the repository and run the portfolio locally on your machine.
+
+---
+
+### 1. Clone the Repository
+
+Open your terminal or command prompt and clone the repository:
+
+```bash
+git clone [https://github.com/](https://github.com/)<your-username>/<your-repo-name>.git
+cd <your-repo-name>
