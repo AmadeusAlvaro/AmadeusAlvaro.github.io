@@ -4,7 +4,7 @@ const projectTheLightOfJava = {
   title: "The Light of Java: Barnabas Sarikrama (Theatrical Performance)",
   category: "CINEMATOGRAPHY & STAGE LIGHTING DIRECTION",
   role: "Director of Photography & Lighting Director",
-  client: "123xhibition Production",
+  client: "SMA Katolik St. Louis 1 Surabaya",
   date: "Jan 2024 – Mar 2024",
   location: "Surabaya, East Java",
   shortDesc: "Cinematic teaser and trailer for a live theatrical performance, plus colour-graded cast portraits for the official posters. Stage lighting cues were designed and called in real time during the shows.",

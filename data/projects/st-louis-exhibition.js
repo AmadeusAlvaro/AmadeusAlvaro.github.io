@@ -3,7 +3,7 @@ const projectStLouisExhibition = {
   id: "st-louis-exhibition",
   title: "St. Louis Exhibition & Talent Competition 2021",
   category: "BROADCAST STREAMING & EVENT DOCUMENTATION",
-  role: "Lead Broadcast Editor & Visual Production",
+  role: "Central Event Committee",
   client: "SMA Katolik St. Louis 1 Surabaya",
   date: "Oct 2021 – Nov 2021",
   location: "Surabaya, East Java",

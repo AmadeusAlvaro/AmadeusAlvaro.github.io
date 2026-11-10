@@ -1,11 +1,11 @@
 // data/projects/unity-2025.js
 const projectUnity2025 = {
   id: "unity-2025",
-  title: "UNITY 2025 — Campus Festival & Live Stage Production",
-  category: "EVENT DOCUMENTATION & DIGITAL BROADCAST",
-  role: "Lead Videographer & Documentation Strategist",
-  client: "UMN Student Committee / UNITY 2025",
-  date: "Jan 2025 – Present",
+  title: "UNITY 2025 — National English Competition",
+  category: "EVENT DOCUMENTATION & CINEMATOGRAPHY",
+  role: "Documentation Committee Member",
+  client: "UMN English Student Council (UESC)",
+  date: "Feb 2025 – Jul 2025",
   location: "Tangerang, Banten",
   shortDesc: "Comprehensive documentation campaign spanning official cinematic trailers, plenary sessions, and high-energy live stage D-day recaps for university-wide festival events.",
 

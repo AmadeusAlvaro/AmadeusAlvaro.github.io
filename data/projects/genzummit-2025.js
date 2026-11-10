@@ -2,8 +2,8 @@
 const projectGenZummit2025 = {
   id: "genzummit-2025",
   title: "GenZummit 2025 — Youth Leadership & Innovation Summit",
-  category: "EVENT PHOTOGRAPHY & COLOR DIRECTION",
-  role: "Lead Event Photographer & Colorist",
+  category: "EVENT PHOTOGRAPHY",
+  role: "Event Photographer",
   client: "GenZummit 2025 Indonesia",
   date: "2025",
   location: "Indonesia",

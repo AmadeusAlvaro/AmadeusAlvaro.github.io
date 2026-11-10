@@ -5,7 +5,7 @@ const projectPhotostoryLatak = {
   category: "PHOTOJOURNALISM & VISUAL ESSAY",
   role: "Visual Storyteller & Photojournalist",
   client: "Frames of Stories Photo Exhibition",
-  date: "2024",
+  date: "May 2025",
   location: "Indonesia",
   shortDesc: "A documentary photo essay capturing underlying social narratives, human-animal street exploitation, and emotional vulnerability through deliberate editorial composition.",
 

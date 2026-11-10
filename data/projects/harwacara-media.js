@@ -2,7 +2,7 @@
 const projectHarwacara = {
   id: "harwacara-media",
   title: "Harwacara Media — VIP & Diplomatic Podcast Productions",
-  category: "BROADCAST & AUDIO-VISUAL PRODUCTION",
+  category: "DIGITAL CONTENT BROADCAST & AUDIO-VISUAL PRODUCTION",
   role: "Director of Photography & Production Strategist",
   client: "Harwacara Media",
   date: "Mar 2026 – Present",
@@ -58,24 +58,14 @@ const projectHarwacara = {
   ],
   archiveLinks: [
     { 
-      title: "Watch Sowan Podcast: Bambang Pacul (Full Episode)", 
-      status: "OPEN YOUTUBE", 
-      url: "https://youtu.be/ocSKRWdueBg" 
-    },
-    { 
       title: "Harwacara Media Official YouTube Channel", 
       status: "YOUTUBE CHANNEL", 
       url: "https://www.youtube.com/@harwacaramedia" 
     },
     { 
-      title: "View BTS Sudan Diplomatic Reel", 
+      title: "Harwacara Media Official Instagram", 
       status: "OPEN INSTAGRAM", 
-      url: "https://www.instagram.com/reel/DbzTd6vyHlf/" 
-    },
-    { 
-      title: "View Production Reel 2", 
-      status: "OPEN INSTAGRAM", 
-      url: "https://www.instagram.com/reel/DfAk0y8y_pb/" 
+      url: "https://www.instagram.com/harwacaramedia" 
     }
   ]
 };
