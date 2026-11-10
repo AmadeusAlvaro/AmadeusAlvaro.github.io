@@ -7,35 +7,25 @@ const projectPhotostoryLatak = {
   client: "Frames of Stories Photo Exhibition",
   date: "2024",
   location: "Indonesia",
-  shortDesc: "A stark documentary photo essay capturing underlying social narratives, expressive human gestures, and emotional vulnerability through deliberate visual composition.",
+  shortDesc: "A documentary photo essay capturing underlying social narratives, human-animal street exploitation, and emotional vulnerability through deliberate editorial composition.",
 
   // Feed card visual
   thumbnail: "assets/images/photostory-latak/Photojournalism Product - Photo Story.PNG",
   tcMaster: "SERIES · 01–06",
   labelMaster: "PHOTO ESSAY · 3:2",
 
-  editorialOverview: "Conceived, shot, and curated a photojournalistic series titled 'Ia Tak Menari, Tapi Menjerit' (She Does Not Dance, She Screams), showcased at the 'Frames of Stories Photo Exhibition'. The project documents expressive bodily movement not merely as performance, but as a visceral social outcry. Directed the end-to-end documentary production pipeline: from capturing original on-site field images and cataloging raw assets to careful sequence curation and final exhibition-grade post-processing.",
+  editorialOverview: "Conceived, shot, and curated a photojournalistic series titled 'Ia Tak Menari, Tapi Menjerit' (She Does Not Dance, She Screams), showcased at the 'Frames of Stories Photo Exhibition'. The project documents street monkey performances as a visceral outcry rather than entertainment. Managed the complete production pipeline: from capturing on-site field images and cataloging raw assets to article reporting and full broadsheet newspaper layout composition.",
   technicalPointers: [
-    "Conceived, shot, and curated a photojournalistic visual essay for gallery exhibition",
-    "Managed complete production pipeline from on-site capture to publication delivery",
-    "Applied disciplined black-and-white tonal grading and composition control",
-    "Curated six-part narrative progression balancing tension, movement, and emotional release"
+    "Conceived, shot, and authored an investigative photojournalism publication",
+    "Designed full-format editorial newspaper broadsheet layout with original body copy",
+    "Curated six-part narrative sequencing detailing movement, captivity, and street interaction",
+    "Exhibited original print pieces at the Frames of Stories Photo Exhibition"
   ],
-  detailMedia: {
-    // Lead essay feature image in the modal
-    masterImage: "assets/images/photostory-latak/story-01.JPG",
-    masterTc: "FRAME 01",
-    masterLabel: "PHOTO ESSAY · LEAD FRAME",
-    masterLink: "assets/images/photostory-latak/Photojournalism Product - Photo Story.PNG",
 
-    // Secondary feature card (Exhibition showcase)
-    reelImage: "assets/images/photostory-latak/My photo story at _Frames of Stories Photo Exhibition_.jpg",
-    reelTc: "EXHIBITION",
-    reelLabel: "FRAMES OF STORIES",
-    reelLink: "assets/images/photostory-latak/My photo story at _Frames of Stories Photo Exhibition_.jpg"
-  },
+  mediaType: "editorial-spread",
+  publicationSpread: "assets/images/photostory-latak/Photojournalism Product - Photo Story.PNG",
 
-  // Chronological documentary essay stills with exhibition feature
+  // Chronological documentary essay stills
   stills: [
     {
       url: "assets/images/photostory-latak/story-01.JPG",
@@ -63,23 +53,19 @@ const projectPhotostoryLatak = {
     },
     {
       url: "assets/images/photostory-latak/My photo story at _Frames of Stories Photo Exhibition_.jpg",
-      caption: "Exhibition Feature: 'Ia Tak Menari, Tapi Menjerit' at the Frames of Stories Photo Exhibition"
-    },
-    {
-      url: "assets/images/photostory-latak/Photojournalism Product - Photo Story.PNG",
-      caption: "Published Editorial Spread & Photojournalism Layout"
+      caption: "Exhibition Installation: Print spread mounted at 'Frames of Stories Photo Exhibition'"
     }
   ],
 
   archiveLinks: [
     {
-      title: "View Photojournalism Publication Product (PNG)",
-      status: "OPEN PUBLICATION",
+      title: "View Original Full-Res Publication Document (PNG)",
+      status: "OPEN ORIGINAL",
       url: "assets/images/photostory-latak/Photojournalism Product - Photo Story.PNG"
     },
     {
       title: "View Exhibition Installation Capture (JPG)",
-      status: "OPEN GALLERY VIEW",
+      status: "OPEN GALLERY",
       url: "assets/images/photostory-latak/My photo story at _Frames of Stories Photo Exhibition_.jpg"
     }
   ]

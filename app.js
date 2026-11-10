@@ -176,6 +176,92 @@ window.openProjectModal = function(id) {
   const content = document.getElementById("modalDynamicContent");
   if (!content) return;
 
+  // Build the media section conditionally
+  let mediaSectionHtml = "";
+
+  const publicationImage = p.publicationDocument?.image || p.publicationSpread;
+
+  if (p.mediaType === "editorial-spread" && publicationImage) {
+    const publicationLabel = p.publicationDocument?.label || "Full-resolution publication spread";
+    const publicationCaption = p.publicationDocument?.caption;
+
+    mediaSectionHtml = `
+      <div class="modal-subhead">PUBLICATION &amp; EDITORIAL SPREAD</div>
+      <div class="publication-spread-wrapper">
+        <a href="${publicationImage}" target="_blank" rel="noopener noreferrer" class="spread-zoom-link" title="Click to view full readable resolution">
+          <img 
+            src="${publicationImage}" 
+            alt="${p.title}" 
+            class="publication-spread-img"
+          />
+          <span class="spread-overlay-badge">🔍 Open Full Readable Spread ↗</span>
+        </a>
+        <div class="spread-caption">
+          <strong>${publicationLabel}</strong>${publicationCaption ? ` — ${publicationCaption}` : ""}
+        </div>
+      </div>
+    `;
+  } else {
+    // Default video and reels layout for all other projects
+    mediaSectionHtml = `
+      <div class="modal-subhead">VIDEO &amp; REELS</div>
+      <div style="display: grid; grid-template-columns: ${p.detailMedia && p.detailMedia.reelLink ? '2fr 1fr' : '1fr'}; gap: 1.5rem; margin-bottom: 2.5rem;">
+        
+        <!-- 16:9 Master Video Box -->
+        <div>
+          <a href="${(p.detailMedia && p.detailMedia.masterLink) || '#'}" target="_blank" rel="noopener" style="text-decoration: none; display: block;">
+            <div class="viewfinder-graphic" style="aspect-ratio: 16 / 9; margin-bottom: 0.75rem;">
+              <span class="vf-tc"><span class="vf-dot"></span> ${(p.detailMedia && p.detailMedia.masterTc) || p.tcMaster}</span>
+              <span class="vf-corner tl"></span>
+              <span class="vf-corner bl"></span>
+              <img 
+                src="${(p.detailMedia && p.detailMedia.masterImage) || p.thumbnail}" 
+                alt="${p.title}" 
+                onerror="this.src='https://placehold.co/800x450/e5e0d5/5e646d?text=Master+Video'" 
+              />
+              <div class="vf-center-play">
+                <svg width="14" height="14" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              </div>
+              <span class="vf-label">${(p.detailMedia && p.detailMedia.masterLabel) || p.labelMaster}</span>
+            </div>
+          </a>
+          ${p.detailMedia && p.detailMedia.masterLink ? `
+            <a href="${p.detailMedia.masterLink}" target="_blank" rel="noopener" class="archive-btn-row">
+              <span>📺 Open in YouTube</span>
+              <span class="btn-status">WATCH ↗</span>
+            </a>
+          ` : ''}
+        </div>
+
+        <!-- 9:16 Vertical Reel Box -->
+        ${p.detailMedia && p.detailMedia.reelLink ? `
+          <div>
+            <a href="${p.detailMedia.reelLink}" target="_blank" rel="noopener" style="text-decoration: none; display: block;">
+              <div class="viewfinder-graphic" style="aspect-ratio: 9 / 16; margin-bottom: 0.75rem;">
+                <span class="vf-tc"><span class="vf-dot"></span> ${p.detailMedia.reelTc}</span>
+                <span class="vf-corner tl"></span>
+                <span class="vf-corner bl"></span>
+                <img 
+                  src="${p.detailMedia.reelImage || p.thumbnail}" 
+                  alt="${p.title}" 
+                  onerror="this.src='https://placehold.co/450x800/e5e0d5/5e646d?text=Instagram+Reel'" 
+                />
+                <div class="vf-center-play">
+                  <svg width="14" height="14" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                </div>
+                <span class="vf-label">${p.detailMedia.reelLabel}</span>
+              </div>
+            </a>
+            <a href="${p.detailMedia.reelLink}" target="_blank" rel="noopener" class="archive-btn-row">
+              <span>📱 Open Reel</span>
+              <span class="btn-status">INSTAGRAM ↗</span>
+            </a>
+          </div>
+        ` : ''}
+      </div>
+    `;
+  }
+
   content.innerHTML = `
     <div class="modal-cat-tag">${p.category}</div>
     <h2 class="modal-title-main">${p.title}</h2>
@@ -199,73 +285,18 @@ window.openProjectModal = function(id) {
       </div>
     </div>
 
-    <div class="modal-subhead">EDITORIAL OVERVIEW & TECHNICAL EXECUTION</div>
+    <div class="modal-subhead">EDITORIAL OVERVIEW &amp; TECHNICAL EXECUTION</div>
     <p class="modal-overview-text">${p.editorialOverview}</p>
 
     <div class="modal-points-grid">
       ${(p.technicalPointers || []).map(pt => `<div class="modal-point-item">${pt}</div>`).join("")}
     </div>
 
-    <!-- VIDEO & REELS SECTION -->
-    <div class="modal-subhead">VIDEO & REELS</div>
-    <div style="display: grid; grid-template-columns: ${p.detailMedia && p.detailMedia.reelLink ? '2fr 1fr' : '1fr'}; gap: 1.5rem; margin-bottom: 2.5rem;">
-      
-      <!-- 16:9 Master Video Box -->
-      <div>
-        <a href="${(p.detailMedia && p.detailMedia.masterLink) || '#'}" target="_blank" rel="noopener" style="text-decoration: none; display: block;">
-          <div class="viewfinder-graphic" style="aspect-ratio: 16 / 9; margin-bottom: 0.75rem;">
-            <span class="vf-tc"><span class="vf-dot"></span> ${(p.detailMedia && p.detailMedia.masterTc) || p.tcMaster}</span>
-            <span class="vf-corner tl"></span>
-            <span class="vf-corner bl"></span>
-            <img 
-              src="${(p.detailMedia && p.detailMedia.masterImage) || p.thumbnail}" 
-              alt="${p.title}" 
-              onerror="this.src='https://placehold.co/800x450/e5e0d5/5e646d?text=Master+Video'" 
-            />
-            <div class="vf-center-play">
-              <svg width="14" height="14" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-            </div>
-            <span class="vf-label">${(p.detailMedia && p.detailMedia.masterLabel) || p.labelMaster}</span>
-          </div>
-        </a>
-        ${p.detailMedia && p.detailMedia.masterLink ? `
-          <a href="${p.detailMedia.masterLink}" target="_blank" rel="noopener" class="archive-btn-row">
-            <span>📺 Open in YouTube</span>
-            <span class="btn-status">WATCH ↗</span>
-          </a>
-        ` : ''}
-      </div>
-
-      <!-- 9:16 Vertical Reel Box -->
-      ${p.detailMedia && p.detailMedia.reelLink ? `
-        <div>
-          <a href="${p.detailMedia.reelLink}" target="_blank" rel="noopener" style="text-decoration: none; display: block;">
-            <div class="viewfinder-graphic" style="aspect-ratio: 9 / 16; margin-bottom: 0.75rem;">
-              <span class="vf-tc"><span class="vf-dot"></span> ${p.detailMedia.reelTc}</span>
-              <span class="vf-corner tl"></span>
-              <span class="vf-corner bl"></span>
-              <img 
-                src="${p.detailMedia.reelImage || p.thumbnail}" 
-                alt="${p.title}" 
-                onerror="this.src='https://placehold.co/450x800/e5e0d5/5e646d?text=Instagram+Reel'" 
-              />
-              <div class="vf-center-play">
-                <svg width="14" height="14" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-              </div>
-              <span class="vf-label">${p.detailMedia.reelLabel}</span>
-            </div>
-          </a>
-          <a href="${p.detailMedia.reelLink}" target="_blank" rel="noopener" class="archive-btn-row">
-            <span>📱 Open Reel</span>
-            <span class="btn-status">INSTAGRAM ↗</span>
-          </a>
-        </div>
-      ` : ''}
-    </div>
+    ${mediaSectionHtml}
 
     <!-- FIELD DOCUMENTATION & STILLS -->
     ${p.stills && p.stills.length ? `
-      <div class="modal-subhead">FIELD DOCUMENTATION & STILLS</div>
+      <div class="modal-subhead">FIELD DOCUMENTATION &amp; STILLS</div>
       <div class="stills-grid-modal">
         ${p.stills.map(still => `
           <div class="still-card-modal">
@@ -284,7 +315,7 @@ window.openProjectModal = function(id) {
 
     <!-- ARCHIVE & FILE DELIVERY -->
     ${p.archiveLinks && p.archiveLinks.length ? `
-      <div class="modal-subhead">ARCHIVE & FILE DELIVERY</div>
+      <div class="modal-subhead">ARCHIVE &amp; FILE DELIVERY</div>
       <div class="archive-btn-list">
         ${p.archiveLinks.map(link => `
           <a href="${link.url || '#'}" target="_blank" rel="noopener" class="archive-btn-row">
@@ -298,6 +329,13 @@ window.openProjectModal = function(id) {
 
   const modal = document.getElementById("projectModal");
   if (modal) {
+    const modalWindow = modal.querySelector(".modal-window");
+    if (modalWindow) {
+      modalWindow.classList.toggle(
+        "publication-modal",
+        p.mediaType === "editorial-spread" && Boolean(publicationImage)
+      );
+    }
     modal.classList.add("open");
     document.body.style.overflow = "hidden";
   }
