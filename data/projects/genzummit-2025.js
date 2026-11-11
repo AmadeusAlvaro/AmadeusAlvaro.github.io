@@ -5,9 +5,11 @@ const projectGenZummit2025 = {
   category: "EVENT PHOTOGRAPHY",
   role: "Event Photographer",
   client: "GenZummit 2025 Indonesia",
-  date: "2025",
+  date: "May 2025",
   location: "Indonesia",
   shortDesc: "Comprehensive photographic coverage and bespoke color grading documenting plenary keynote sessions, delegate collaborations, and milestone summit programming.",
+
+  mediaType: "photography",
 
   // Feed card visual
   thumbnail: "assets/images/genzummit-2025/teampic-2.jpg",
@@ -25,8 +27,7 @@ const projectGenZummit2025 = {
     // Master Feature Still
     masterImage: "assets/images/genzummit-2025/eventpic-1.jpg",
     masterTc: "TC 00:00:01:00",
-    masterLabel: "SUMMIT STAGE & KEYNOTE",
-    masterLink: "https://genzummit.com/"
+    masterLabel: "SUMMIT STAGE & KEYNOTE"
   },
 
   // Full gallery mapped to your asset filenames

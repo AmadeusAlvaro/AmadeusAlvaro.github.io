@@ -2,8 +2,76 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   renderProjectsFeed();
+  initSectionNavigation();
   initModalListeners();
 });
+
+function initSectionNavigation() {
+  const header = document.querySelector(".site-header");
+  const navLinks = [...document.querySelectorAll(".nav-tab")];
+  const sections = navLinks
+    .map(link => ({
+      link,
+      section: document.getElementById(link.hash.slice(1))
+    }))
+    .filter(item => item.section);
+
+  if (!header || !sections.length) return;
+
+  function updateActiveTab() {
+    const headerBottom = header.getBoundingClientRect().bottom + 20;
+    let activeSection = sections[0];
+
+    for (const item of sections) {
+      const heading = item.section.querySelector(".eyebrow-red") || item.section;
+      if (heading.getBoundingClientRect().top <= headerBottom) {
+        activeSection = item;
+      }
+    }
+
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+      activeSection = sections[sections.length - 1];
+    }
+
+    for (const item of sections) {
+      const isActive = item === activeSection;
+      item.link.classList.toggle("active", isActive);
+      if (isActive) {
+        item.link.setAttribute("aria-current", "location");
+      } else {
+        item.link.removeAttribute("aria-current");
+      }
+    }
+  }
+
+  for (const item of sections) {
+    item.link.addEventListener("click", event => {
+      event.preventDefault();
+      const heading = item.section.querySelector(".eyebrow-red") || item.section;
+      const top = window.scrollY + heading.getBoundingClientRect().top
+        - header.getBoundingClientRect().height - 16;
+
+      history.pushState(null, "", item.link.hash);
+      window.scrollTo({ top, behavior: "smooth" });
+      updateActiveTab();
+    });
+  }
+
+  const backToTopLink = document.querySelector(".back-to-top");
+  if (backToTopLink) {
+    backToTopLink.addEventListener("click", event => {
+      event.preventDefault();
+      history.pushState(null, "", "#about");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      updateActiveTab();
+    });
+  }
+
+  window.addEventListener("scroll", updateActiveTab, { passive: true });
+  window.addEventListener("resize", updateActiveTab);
+  window.addEventListener("popstate", updateActiveTab);
+  updateActiveTab();
+}
 
 // ========================================================
 // PERSISTENT AUDIO CONTROLLER (DEFAULT: MUTED)
@@ -180,8 +248,20 @@ window.openProjectModal = function(id) {
   let mediaSectionHtml = "";
 
   const publicationImage = p.publicationDocument?.image || p.publicationSpread;
+  const isUnityReels = p.id === "unity-2025";
+  const isStLouisYouTube = p.id === "st-louis-exhibition";
 
-  if (p.mediaType === "editorial-spread" && publicationImage) {
+  if (p.mediaType === "photography" && p.detailMedia?.masterImage) {
+    mediaSectionHtml = `
+      <div class="modal-subhead">FEATURED PHOTOGRAPHY</div>
+      <div class="viewfinder-graphic" style="aspect-ratio: 16 / 9; margin-bottom: 2.5rem;">
+        <span class="vf-corner tl"></span>
+        <span class="vf-corner bl"></span>
+        <img src="${p.detailMedia.masterImage}" alt="${p.detailMedia.masterLabel || p.title}" />
+        <span class="vf-label">${p.detailMedia.masterLabel || "FEATURED PHOTO"}</span>
+      </div>
+    `;
+  } else if (p.mediaType === "editorial-spread" && publicationImage) {
     const publicationLabel = p.publicationDocument?.label || "Full-resolution publication spread";
     const publicationCaption = p.publicationDocument?.caption;
 
@@ -204,8 +284,8 @@ window.openProjectModal = function(id) {
   } else {
     // Default video and reels layout for all other projects
     mediaSectionHtml = `
-      <div class="modal-subhead">VIDEO &amp; REELS</div>
-      <div style="display: grid; grid-template-columns: ${p.detailMedia && p.detailMedia.reelLink ? '2fr 1fr' : '1fr'}; gap: 1.5rem; margin-bottom: 2.5rem;">
+      <div class="modal-subhead">${isUnityReels ? "REELS" : isStLouisYouTube ? "YOUTUBE VIDEOS" : "VIDEO &amp; REELS"}</div>
+      <div style="display: grid; grid-template-columns: ${p.detailMedia && p.detailMedia.reelLink ? (isStLouisYouTube ? '1fr 1fr' : '2fr 1fr') : '1fr'}; gap: 1.5rem; margin-bottom: 2.5rem;">
         
         <!-- 16:9 Master Video Box -->
         <div>
@@ -227,8 +307,8 @@ window.openProjectModal = function(id) {
           </a>
           ${p.detailMedia && p.detailMedia.masterLink ? `
             <a href="${p.detailMedia.masterLink}" target="_blank" rel="noopener" class="archive-btn-row">
-              <span>📺 Open in YouTube</span>
-              <span class="btn-status">WATCH ↗</span>
+              <span>${isUnityReels ? "📱 Open Reel" : "📺 Open in YouTube"}</span>
+              <span class="btn-status">${isUnityReels ? "INSTAGRAM ↗" : "WATCH ↗"}</span>
             </a>
           ` : ''}
         </div>
@@ -237,14 +317,14 @@ window.openProjectModal = function(id) {
         ${p.detailMedia && p.detailMedia.reelLink ? `
           <div>
             <a href="${p.detailMedia.reelLink}" target="_blank" rel="noopener" style="text-decoration: none; display: block;">
-              <div class="viewfinder-graphic" style="aspect-ratio: 9 / 16; margin-bottom: 0.75rem;">
+              <div class="viewfinder-graphic" style="aspect-ratio: ${isStLouisYouTube ? '16 / 9' : '9 / 16'}; margin-bottom: 0.75rem;">
                 <span class="vf-tc"><span class="vf-dot"></span> ${p.detailMedia.reelTc}</span>
                 <span class="vf-corner tl"></span>
                 <span class="vf-corner bl"></span>
                 <img 
                   src="${p.detailMedia.reelImage || p.thumbnail}" 
                   alt="${p.title}" 
-                  onerror="this.src='https://placehold.co/450x800/e5e0d5/5e646d?text=Instagram+Reel'" 
+                  onerror="this.src='https://placehold.co/${isStLouisYouTube ? '800x450' : '450x800'}/e5e0d5/5e646d?text=${isStLouisYouTube ? 'YouTube+Video' : 'Instagram+Reel'}'" 
                 />
                 <div class="vf-center-play">
                   <svg width="14" height="14" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
@@ -253,8 +333,8 @@ window.openProjectModal = function(id) {
               </div>
             </a>
             <a href="${p.detailMedia.reelLink}" target="_blank" rel="noopener" class="archive-btn-row">
-              <span>📱 Open Reel</span>
-              <span class="btn-status">INSTAGRAM ↗</span>
+              <span>${isStLouisYouTube ? "📺 Open in YouTube" : "📱 Open Reel"}</span>
+              <span class="btn-status">${isStLouisYouTube ? "WATCH ↗" : "INSTAGRAM ↗"}</span>
             </a>
           </div>
         ` : ''}
