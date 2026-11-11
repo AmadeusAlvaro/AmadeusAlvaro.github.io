@@ -116,10 +116,10 @@ function buildProjectCard(p) {
         onerror="this.src='https://placehold.co/600x338/e5e0d5/5e646d?text=${encodeURIComponent(p.client)}'" 
       />`;
 
-  const playButtonHtml = `
+  const playButtonHtml = isVideo ? `
     <div class="vf-center-play">
       <svg width="14" height="14" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-    </div>`;
+    </div>` : '';
 
   const volumeControlHtml = isVideo
     ? `<button type="button" class="vf-volume-btn" title="Toggle Mute / Volume" onclick="toggleCardVolume(event, this)">
