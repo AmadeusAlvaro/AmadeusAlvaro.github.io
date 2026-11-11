@@ -18,6 +18,16 @@ function initSectionNavigation() {
 
   if (!header || !sections.length) return;
 
+  function scrollToSection(item, hash) {
+    const heading = item.section.querySelector(".eyebrow-red") || item.section;
+    const top = window.scrollY + heading.getBoundingClientRect().top
+      - header.getBoundingClientRect().height - 16;
+
+    history.pushState(null, "", hash);
+    window.scrollTo({ top, behavior: "smooth" });
+    updateActiveTab();
+  }
+
   function updateActiveTab() {
     const headerBottom = header.getBoundingClientRect().bottom + 20;
     let activeSection = sections[0];
@@ -47,13 +57,16 @@ function initSectionNavigation() {
   for (const item of sections) {
     item.link.addEventListener("click", event => {
       event.preventDefault();
-      const heading = item.section.querySelector(".eyebrow-red") || item.section;
-      const top = window.scrollY + heading.getBoundingClientRect().top
-        - header.getBoundingClientRect().height - 16;
+      scrollToSection(item, item.link.hash);
+    });
+  }
 
-      history.pushState(null, "", item.link.hash);
-      window.scrollTo({ top, behavior: "smooth" });
-      updateActiveTab();
+  const viewProjectsLink = document.querySelector('.btn-primary-red[href="#projects"]');
+  const projectsSection = sections.find(item => item.section.id === "projects");
+  if (viewProjectsLink && projectsSection) {
+    viewProjectsLink.addEventListener("click", event => {
+      event.preventDefault();
+      scrollToSection(projectsSection, viewProjectsLink.hash);
     });
   }
 
