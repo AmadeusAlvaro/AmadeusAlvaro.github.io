@@ -6,7 +6,7 @@ const projectGenZummit2025 = {
   role: "Event Photographer",
   client: "GenZummit 2025 Indonesia",
   date: "May 2025",
-  location: "Indonesia",
+  location: "Jakarta",
   shortDesc: "Comprehensive photographic coverage and bespoke color grading documenting plenary keynote sessions, delegate collaborations, and milestone summit programming.",
 
   mediaType: "photography",
