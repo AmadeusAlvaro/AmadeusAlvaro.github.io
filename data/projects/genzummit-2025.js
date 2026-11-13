@@ -1,10 +1,10 @@
 // data/projects/genzummit-2025.js
 const projectGenZummit2025 = {
   id: "genzummit-2025",
-  title: "GenZummit 2025 — Youth Leadership & Innovation Summit",
+  title: "GEN-ZUMMIT 2025 — Youth Leadership & Innovation Summit",
   category: "EVENT PHOTOGRAPHY",
   role: "Event Photographer",
-  client: "GenZummit 2025 Indonesia",
+  client: "GEN-ZUMMIT 2025",
   date: "May 2025",
   location: "Jakarta",
   shortDesc: "Comprehensive photographic coverage and bespoke color grading documenting plenary keynote sessions, delegate collaborations, and milestone summit programming.",
