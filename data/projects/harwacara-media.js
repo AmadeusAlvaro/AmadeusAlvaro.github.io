@@ -6,8 +6,8 @@ const projectHarwacara = {
   role: "Director of Photography & Production Strategist",
   client: "Harwacara Media",
   date: "Mar 2026 – Present",
-  location: "Indonesia",
-  shortDesc: "Multi-camera podcast productions with ambassadors and politicians, shot to a broadcast standard. Includes behind-the-scenes short-form reels for the studio's digital channels.",
+  location: "Jakarta",
+  shortDesc: "Multi-camera podcast productions with ambassadors and politicians, shot to a broadcast standard. Includes behind-the-scenes posts for the media's digital channels.",
   
   // Card on the main feed: BTS Russia video with Russian Ambassador poster
   thumbnail: "assets/images/harwacara-media/Interview with Sergei Tolchenov, Ambassador of Russia to Indonesia.jpg",
@@ -15,7 +15,7 @@ const projectHarwacara = {
   tcMaster: "TC 01:12:08:15",
   labelMaster: "SOWAN PODCAST · 16:9",
 
-  editorialOverview: "Harwacara Media produces VIP interviews and diplomatic podcast episodes featuring ambassadors, government ministers, and national political figures. I lead the multi-camera broadcast workflow, lighting architecture, on-set lavalier audio capture, and technical continuity to ensure seamless broadcast delivery on tight diplomatic schedules. Between main podcast sessions, I direct and cut high-engagement vertical reels and behind-the-scenes footage for Harwacara's digital distribution.",
+  editorialOverview: "Harwacara Media produces VIP audio-visual digital podcasts featuring influential national and international figures, including ambassadors and politicians. I lead the multi-camera broadcast workflow, lighting architecture, on-set audio monitoring, and technical continuity to ensure seamless broadcast delivery. Between main podcast sessions, I shoot behind-the-scenes footage for Harwacara's digital distribution.",
   technicalPointers: [
     "Multi-camera broadcast arrangement and color-matched camera profiles",
     "On-set multi-channel wireless lavalier and shotgun audio management",
